@@ -16,6 +16,7 @@ app.use(require('./routes/record'));
 // Global error handling
 app.use(function (err, _req, res) {
   console.error(err.stack);
+  confirm.log('error');
   res.status(500).send('Something broke!');
 });
 
@@ -31,3 +32,5 @@ dbo.connectToServer(function (err) {
     console.log(`Server is running on port: ${PORT}`);
   });
 });
+
+module.exports = app;
