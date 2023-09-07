@@ -1,10 +1,19 @@
-
 const server = require('../server');
 const assert = require('chai').assert;
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+const dbo = require('../db/conn');
 chai.use(chaiHttp);
 
+before(function (done){
+    dbo.connectToServer(function(err){
+        if(err){
+            console.error(err);
+            process.exit();
+        }
+        done();
+    })
+})
 describe('02 prueba peticiones usaremos chai-http', () => {
     
     it('Probando el estatus del get a la raiz', (done) => {
