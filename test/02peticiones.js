@@ -39,6 +39,7 @@ describe('02 prueba peticiones usaremos chai-http', () => {
 
 
     // verificamos
+    //prueba 2
     it('verificando datos', (done) => {
         chai.request(server)
         .get('/tareas')
